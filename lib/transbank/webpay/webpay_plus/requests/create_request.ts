@@ -7,7 +7,7 @@ class CreateRequest extends RequestBase {
   returnUrl: string;
 
   constructor(buyOrder: string, sessionId: string, amount: number, returnUrl: string) {
-    super('/rswebpaytransaction/api/webpay/v1.0/transactions', 'POST');
+    super('/rswebpaytransaction/api/webpay/v1.3/transactions', 'POST');
 
     this.buyOrder = buyOrder;
     this.sessionId = sessionId;

@@ -2,7 +2,7 @@ import RequestBase from '../../../common/request_base';
 
 class StatusRequest extends RequestBase {
   constructor(token: string) {
-    super(`/rswebpaytransaction/api/webpay/v1.0/transactions/${token}`, 'GET');
+    super(`/rswebpaytransaction/api/webpay/v1.3/transactions/${token}`, 'GET');
   }
 
   toJson() {

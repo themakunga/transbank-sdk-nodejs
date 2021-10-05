@@ -13,7 +13,7 @@ class MallCreateRequest extends RequestBase {
     returnUrl: string,
     details: Array<TransactionDetail>
   ) {
-    super('/rswebpaytransaction/api/webpay/v1.0/transactions', 'POST');
+    super('/rswebpaytransaction/api/webpay/v1.3/transactions', 'POST');
 
     this.buyOrder = buyOrder;
     this.sessionId = sessionId;

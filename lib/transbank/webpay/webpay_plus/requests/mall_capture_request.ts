@@ -13,7 +13,7 @@ class MallCaptureRequest extends RequestBase {
     authorizationCode: string,
     amount: number
   ) {
-    super(`/rswebpaytransaction/api/webpay/v1.0/transactions/${token}/capture`, 'PUT');
+    super(`/rswebpaytransaction/api/webpay/v1.3/transactions/${token}/capture`, 'PUT');
 
     this.commerceCode = commerceCode;
     this.buyOrder = buyOrder;

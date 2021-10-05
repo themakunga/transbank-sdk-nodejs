@@ -6,7 +6,7 @@ class MallRefundRequest extends RequestBase {
   amount: number;
 
   constructor(token: string, buyOrder: string, commerceCode: string, amount: number) {
-    super(`/rswebpaytransaction/api/webpay/v1.0/transactions/${token}/refunds`, 'POST');
+    super(`/rswebpaytransaction/api/webpay/v1.3/transactions/${token}/refunds`, 'POST');
 
     this.buyOrder = buyOrder;
     this.commerceCode = commerceCode;

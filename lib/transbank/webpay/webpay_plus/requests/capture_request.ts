@@ -6,7 +6,7 @@ class CaptureRequest extends RequestBase {
   amount: number;
 
   constructor(token: string, buyOrder: string, sessionId: string, amount: number) {
-    super(`/rswebpaytransaction/api/webpay/v1.0/transactions/${token}/capture`, 'PUT');
+    super(`/rswebpaytransaction/api/webpay/v1.3/transactions/${token}/capture`, 'PUT');
 
     this.buyOrder = buyOrder;
     this.authorizationCode = sessionId;

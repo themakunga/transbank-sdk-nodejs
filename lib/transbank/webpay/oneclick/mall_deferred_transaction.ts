@@ -1,6 +1,10 @@
 import Oneclick from '.';
 import Options from '../../common/options';
 import RequestService from '../../common/request_service';
+import { DeferredCaptureHistoryRequest } from '../common/deferred_capture_history_request';
+import { IncreaseAmountRequest } from '../common/increase_amount_request';
+import { IncreaseAuthorizationDateRequest } from '../common/increase_authorization_date_request';
+import { ReversePreAuthorizedAmountRequest } from '../common/reverse_pre_authorized_amount_request';
 import MallTransaction from './mall_transaction';
 import { CaptureRequest } from './requests/capture_request';
 
@@ -24,6 +28,51 @@ const MallDeferredTransaction = {
   ) => {
     let captureRequest = new CaptureRequest(commerceCode, buyOrder, amount, authorizationCode);
     return RequestService.perform(captureRequest, options);
+  },
+  increaseAmount: async (
+    token: string,
+    buyOrder: string,
+    authorizationCode: string,
+    amount: number,
+    options: Options = Oneclick.getDefaultOptions()
+  ) => {
+    return RequestService.perform(
+      new IncreaseAmountRequest(token, buyOrder, authorizationCode, amount),
+      options
+    );
+  },
+  increaseAuthorizationDate: async (
+    token: string,
+    buyOrder: string,
+    authorizationCode: string,
+    options: Options = Oneclick.getDefaultOptions()
+  ) => {
+    return RequestService.perform(
+      new IncreaseAuthorizationDateRequest(token, buyOrder, authorizationCode),
+      options
+    );
+  },
+  reversePreAuthorizedAmount: async (
+    token: string,
+    buyOrder: string,
+    authorizationCode: string,
+    amount: number,
+    options: Options = Oneclick.getDefaultOptions()
+  ) => {
+    return RequestService.perform(
+      new ReversePreAuthorizedAmountRequest(token, buyOrder, authorizationCode, amount),
+      options
+    );
+  },
+  deferredCaptureHistory: async (
+    token: string,
+    buyOrder: string,
+    options: Options = Oneclick.getDefaultOptions()
+  ) => {
+    return RequestService.perform(
+      new DeferredCaptureHistoryRequest(token, buyOrder),
+      options
+    );
   },
 };
 
